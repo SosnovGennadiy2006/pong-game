@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QPushButton
 import os
 
 click_media_player = QMediaPlayer()
-url = QtCore.QUrl.fromLocalFile('Audios/clickSound.mp3')
+url = QtCore.QUrl.fromLocalFile('game/Audios/clickSound.mp3')
 content = QMediaContent(url)
 click_media_player.setMedia(content)
 
@@ -17,7 +17,7 @@ class CustomSlider(QtWidgets.QSlider):
         self.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.setFocusPolicy(Qt.NoFocus)
         self.click_media = QMediaPlayer()
-        url = QtCore.QUrl.fromLocalFile('Audios/clickSound.mp3')
+        url = QtCore.QUrl.fromLocalFile('game/Audios/clickSound.mp3')
         content = QMediaContent(url)
         self.click_media.setMedia(content)
 
@@ -86,13 +86,13 @@ class CustomButton(QPushButton):
     def __init__(self, text, parent=None):
         super(CustomButton, self).__init__(text, parent)
         self.select_media_player = QMediaPlayer()
-        url = QtCore.QUrl.fromLocalFile('Audios/selectSound.mp3')
+        url = QtCore.QUrl.fromLocalFile('game/Audios/selectSound.mp3')
         content = QMediaContent(url)
         self.select_media_player.setMedia(content)
         path_image = os.path.join(os.path.dirname(os.path.realpath(
-            __file__)), "Images/backgroundImage.png").replace("\\", "/")
+            __file__)), "game/Images/backgroundImage.png").replace("\\", "/")
         path_image_active = os.path.join(os.path.dirname(os.path.realpath(
-            __file__)), "Images/backgroundImageActive.png").replace("\\", "/")
+            __file__)), "game/Images/backgroundImageActive.png").replace("\\", "/")
         self.setFocusPolicy(QtCore.Qt.NoFocus)
         self.setStyleSheet("QPushButton\n"
                            "{\n"
@@ -110,10 +110,10 @@ class CustomButton(QPushButton):
         self.setFont(font)
         self.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.click_media = QMediaPlayer()
-        url = QtCore.QUrl.fromLocalFile('Audios/clickSound.mp3')
+        url = QtCore.QUrl.fromLocalFile('game/Audios/clickSound.mp3')
         content = QMediaContent(url)
         self.click_media = QMediaPlayer()
-        url = QtCore.QUrl.fromLocalFile('Audios/clickSound.mp3')
+        url = QtCore.QUrl.fromLocalFile('game/Audios/clickSound.mp3')
         content = QMediaContent(url)
         self.click_media.setMedia(content)
 
@@ -134,14 +134,14 @@ class SquareBtn(QPushButton):
         super(SquareBtn, self).__init__(text, parent)
 
         self.select_media_player = QMediaPlayer()
-        url = QtCore.QUrl.fromLocalFile('Audios/selectSound.mp3')
+        url = QtCore.QUrl.fromLocalFile('game/Audios/selectSound.mp3')
         content = QMediaContent(url)
         self.select_media_player.setMedia(content)
 
         path = os.path.join(os.path.dirname(os.path.realpath(
-            __file__)), "Images/backgroundImageSquare.png").replace("\\", "/")
+            __file__)), "game/Images/backgroundImageSquare.png").replace("\\", "/")
         activePath = os.path.join(os.path.dirname(os.path.realpath(
-            __file__)), "Images/backgroundImageSquareActive.png").replace("\\", "/")
+            __file__)), "game/Images/backgroundImageSquareActive.png").replace("\\", "/")
         self.setStyleSheet("QPushButton\n"
                            "{\n"
                            f"    border-image: url({path});"
@@ -156,7 +156,7 @@ class SquareBtn(QPushButton):
         self.setFocusPolicy(Qt.NoFocus)
         self.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.click_media = QMediaPlayer()
-        url = QtCore.QUrl.fromLocalFile('Audios/clickSound.mp3')
+        url = QtCore.QUrl.fromLocalFile('game/Audios/clickSound.mp3')
         content = QMediaContent(url)
         self.click_media.setMedia(content)
 
@@ -175,7 +175,7 @@ class BackBtn(SquareBtn):
         self.opacity_effect = QtWidgets.QGraphicsOpacityEffect()
         self.opacity_effect.setOpacity(0.4)
         self.setGraphicsEffect(self.opacity_effect)
-        self.setIcon(QtGui.QIcon('Images/backWhite.png'))
+        self.setIcon(QtGui.QIcon('game/Images/backWhite.png'))
         self.setIconSize(QtCore.QSize(50, 50))
         self.setToolTip('<b>To menu</b>')
 
@@ -183,13 +183,13 @@ class BackBtn(SquareBtn):
         self.select_media_player.play()
         self.opacity_effect.setOpacity(1)
         self.setGraphicsEffect(self.opacity_effect)
-        self.setIcon(QtGui.QIcon('Images/backBlack.png'))
+        self.setIcon(QtGui.QIcon('game/Images/backBlack.png'))
         self.setIconSize(QtCore.QSize(50, 50))
 
     def leaveEvent(self, e):
         self.opacity_effect.setOpacity(0.4)
         self.setGraphicsEffect(self.opacity_effect)
-        self.setIcon(QtGui.QIcon('Images/backWhite.png'))
+        self.setIcon(QtGui.QIcon('game/Images/backWhite.png'))
         self.setIconSize(QtCore.QSize(50, 50))
 
 class RestartBtn(SquareBtn):
@@ -198,7 +198,7 @@ class RestartBtn(SquareBtn):
         self.opacity_effect = QtWidgets.QGraphicsOpacityEffect()
         self.opacity_effect.setOpacity(0.4)
         self.setGraphicsEffect(self.opacity_effect)
-        self.setIcon(QtGui.QIcon('Images/againWhite.png'))
+        self.setIcon(QtGui.QIcon('game/Images/againWhite.png'))
         self.setIconSize(QtCore.QSize(50, 50))
         self.setToolTip('<b>Restart</b>')
 
@@ -206,11 +206,11 @@ class RestartBtn(SquareBtn):
         self.select_media_player.play()
         self.opacity_effect.setOpacity(1)
         self.setGraphicsEffect(self.opacity_effect)
-        self.setIcon(QtGui.QIcon('Images/againBlack.png'))
+        self.setIcon(QtGui.QIcon('game/Images/againBlack.png'))
         self.setIconSize(QtCore.QSize(50, 50))
 
     def leaveEvent(self, e):
         self.opacity_effect.setOpacity(0.4)
         self.setGraphicsEffect(self.opacity_effect)
-        self.setIcon(QtGui.QIcon('Images/againWhite.png'))
+        self.setIcon(QtGui.QIcon('game/Images/againWhite.png'))
         self.setIconSize(QtCore.QSize(50, 50))

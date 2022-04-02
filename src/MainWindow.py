@@ -3,7 +3,7 @@ from PyQt5.QtCore import QTimer, Qt, QRect
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
 from PyQt5.QtGui import QImage, QPainter, QColor
 from PyQt5.QtWidgets import QFrame, QPushButton, QWidget, QDialog, QGridLayout, QLabel, QSpacerItem, QSizePolicy
-from gameClass import Game
+from game.gameClass import Game
 from menuClass import Menu
 from settingsClass import Settings
 from TitleBar import TitleBar
@@ -85,7 +85,7 @@ class CustomDialog(QDialog):
         self.titleBar.buttonMinimum.hide()
         self.titleBar.setGeometry(QtCore.QRect(0, 0, self.width, 30))
         self.titleBar.setTitle('match result - ')
-        self.titleBar.setIcon(QtGui.QIcon('Images/icon.ico'))
+        self.titleBar.setIcon(QtGui.QIcon('game/Images/icon.ico'))
 
         # слот сигнала
         self.titleBar.windowMinimumed.connect(self.showMinimized)
@@ -158,7 +158,7 @@ class MainWindow(QWidget):
         self.appSoundsVolume = 50
         self.appMusicVolume = 50
         self.musicPlayer = QMediaPlayer()
-        url = QtCore.QUrl.fromLocalFile('Audios/background_music.mp3')
+        url = QtCore.QUrl.fromLocalFile('game/Audios/background_music.mp3')
         content = QMediaContent(url)
         self.musicPlayer.setMedia(content)
         self.musicPlayer.setVolume(self.appMusicVolume)
@@ -195,7 +195,7 @@ class MainWindow(QWidget):
         self.titleBar = TitleBar(self)
         self.titleBar.setGeometry(QtCore.QRect(0, 0, self.width, 30))
         self.titleBar.setTitle('Table Tennis, v1.1')
-        self.titleBar.setIcon(QtGui.QIcon('Images/icon.ico'))
+        self.titleBar.setIcon(QtGui.QIcon('game/Images/icon.ico'))
 
         # слот сигнала
         self.titleBar.windowMinimumed.connect(self.showMinimized)

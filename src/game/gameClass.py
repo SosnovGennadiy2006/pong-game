@@ -1,6 +1,6 @@
 import pygame
-from ballClass import Ball
-from platformClass import Platform
+from game.ballClass import Ball
+from game.platformClass import Platform
 from PyQt5 import QtCore
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
 from random import randint
@@ -50,11 +50,11 @@ class Game():
 
         #Звуки
         self.BOUNCE_SOUND = QMediaPlayer()
-        url = QtCore.QUrl.fromLocalFile('Audios/bounceSound.mp3')
+        url = QtCore.QUrl.fromLocalFile('game/Audios/bounceSound.mp3')
         content = QMediaContent(url)
         self.BOUNCE_SOUND.setMedia(content)
         self.WIN_SOUND = QMediaPlayer()
-        url = QtCore.QUrl.fromLocalFile('Audios/winSound.mp3')
+        url = QtCore.QUrl.fromLocalFile('game/Audios/winSound.mp3')
         content = QMediaContent(url)
         self.WIN_SOUND.setMedia(content)
 
